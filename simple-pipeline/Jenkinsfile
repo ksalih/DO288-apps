@@ -6,11 +6,7 @@ pipeline {
     agent {
       node {
         // TODO: run this simple pipeline on jenkins 'master' node
-        agent {
-          node {
-            label 'master'
-          }
-        }
+        label 'master'
       }
     }
 
@@ -40,12 +36,12 @@ pipeline {
             timeout(time: 60, unit: 'MINUTES') {
               input message: "Move to state 3?"
             }
+          }
         }
         stage('stage 3') {
             steps {
                 sh 'echo hello from stage 3!. This is the last stage...'
             }
-        }
-      }
+        }  
     }
 }
